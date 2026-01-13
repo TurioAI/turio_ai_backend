@@ -31,7 +31,7 @@ REST API to manage users, tourist routes, and media content.
 The backend uses:
 - NestJS as the main framework
 - Firebase Authentication for login (email, Google, Apple)
-- PostgreSQL + TypeORM for data persistence
+- PostgreSQL + Prisma for data persistence
 - Azure Blob Storage for file uploads
 
 ## Getting started
@@ -40,8 +40,8 @@ The backend uses:
 
 - Node.js (LTS)
 - npm
-- PostgreSQL database
 - Firebase project with Authentication enabled
+- Docker desktop
 
 ### Installation
 
@@ -51,6 +51,19 @@ The backend uses:
 
 Create a `.env` file in the project root.  
 These variables will be filled as the project evolves:
+
+PORT=3000
+
+FIREBASE_PROJECT_ID=
+FIREBASE_CLIENT_EMAIL=
+FIREBASE_PRIVATE_KEY=
+
+DATABASE_URL=
+
+## Start PostgreSQL and Redis using Docker
+docker compose up -d
+npx prisma migrate dev
+
 
 ### Running the app
 

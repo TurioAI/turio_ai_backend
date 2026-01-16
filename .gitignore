@@ -58,8 +58,15 @@ report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 /generated/prisma
 
 # Secrets
+<<<<<<< HEAD
 utils/*adminsdk*.json
 *.pem
 *.p12
 .env
 .env.*
+=======
+utils/turio-ai-firebase-adminsdk-*.json
+
+# Secrets
+utils/turio-ai-firebase-adminsdk-*.json
+>>>>>>> 24dd284 (I have prepared the retrieval of global styles from the backend)

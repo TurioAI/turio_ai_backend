@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "version": "1",
+  "colors": {
+    "brandDark": "#03045E",
+    "brandPrimary": "#056AF1",
+    "brandAccent": "#00B4D8"
+  },
+  "textSizes": {
+    "screenTitle": { "size": 24, "weight": 600 }
+  }
+}

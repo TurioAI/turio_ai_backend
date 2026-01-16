@@ -7,6 +7,7 @@ import { FirebaseModule } from './firebase/firebase.module';
 import { AuthModule } from './auth/auth.module';
 import { PrismaModule } from './prisma/prisma.module';
 import { I18nModule } from './i18n/i18n.module';
+import { ThemeModule } from './theme/theme.module';
 
 @Module({
   imports: [
@@ -17,6 +18,7 @@ import { I18nModule } from './i18n/i18n.module';
     FirebaseModule,
     AuthModule,
     I18nModule,
+    ThemeModule,
   ],
   controllers: [AppController],
   providers: [AppService],

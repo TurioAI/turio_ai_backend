@@ -1,72 +1,68 @@
-# compiled output
-/dist
-/node_modules
-/build
-
-# Logs
-logs
+# =========================
+# Miscellaneous
+# =========================
+*.class
 *.log
-npm-debug.log*
-pnpm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-lerna-debug.log*
-
-# OS
+*.pyc
+*.swp
 .DS_Store
+.atom/
+.build/
+.buildlog/
+.history
+.svn/
+.swiftpm/
+migrate_working_dir/
 
-# Tests
-/coverage
-/.nyc_output
+# =========================
+# IntelliJ related
+# =========================
+*.iml
+*.ipr
+*.iws
+.idea/
 
-# IDEs and editors
-/.idea
-.project
-.classpath
-.c9/
-*.launch
-.settings/
-*.sublime-workspace
+# =========================
+# VS Code
+# =========================
+#.vscode/
 
-# IDE - VSCode
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
+# =========================
+# Flutter / Dart / Pub
+# =========================
+**/doc/api/
+**/ios/Flutter/.last_build_id
+.dart_tool/
+.flutter-plugins-dependencies
+.pub-cache/
+.pub/
+/build/
+/coverage/
 
-# dotenv environment variable files
-.env
-.env.development.local
-.env.test.local
-.env.production.local
-.env.local
+# =========================
+# Symbolication related
+# =========================
+app.*.symbols
 
-# temp directory
-.temp
-.tmp
+# =========================
+# Obfuscation related
+# =========================
+app.*.map.json
 
-# Runtime data
-pids
-*.pid
-*.seed
-*.pid.lock
+# =========================
+# Android Studio build outputs
+# =========================
+/android/app/debug
+/android/app/profile
+/android/app/release
 
-# Diagnostic reports (https://nodejs.org/api/report.html)
-report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
-
-/generated/prisma
-
-# Secrets
-<<<<<<< HEAD
-utils/*adminsdk*.json
-*.pem
-*.p12
-.env
-.env.*
-=======
+# =========================
+# Secrets / Credentials
+# =========================
 utils/turio-ai-firebase-adminsdk-*.json
-
-# Secrets
-utils/turio-ai-firebase-adminsdk-*.json
->>>>>>> 24dd284 (I have prepared the retrieval of global styles from the backend)
+**/*firebase*adminsdk*.json
+**/serviceAccount*.json
+*.env
+*.env.*
+**/*secret*.json
+**/*credentials*.json

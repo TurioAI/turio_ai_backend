@@ -4,7 +4,15 @@
   "colors": {
     "brandDark": "#03045E",
     "brandPrimary": "#056AF1",
-    "brandAccent": "#00B4D8"
+    "brandAccent": "#00B4D8",
+    "buttonPrimaryGradientTop": "#056AF1",
+    "buttonPrimaryGradientBottom": "#033D8B"
+  },
+  "opacities": {
+    "buttonDisabledBackground": 0.35,
+    "buttonDisabledLabel": 0.70,
+    "buttonShimmerEdge": 0.10,
+    "buttonShimmerHighlight": 0.30
   },
   "textSizes": {
     "screenTitle": { "size": 24, "weight": 600 }

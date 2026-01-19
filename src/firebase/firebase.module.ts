@@ -1,28 +1,34 @@
-import { Module } from '@nestjs/common';
-import { ConfigService } from '@nestjs/config';
-import * as admin from 'firebase-admin';
+import { Module } from '@nestjs/common'
+import * as admin from 'firebase-admin'
+import { readFileSync } from 'fs'
+import { resolve } from 'path'
 
 @Module({
   providers: [
     {
       provide: 'FIREBASE_ADMIN',
-      inject: [ConfigService],
-      useFactory: (config: ConfigService) => {
+      useFactory: () => {
         if (admin.apps.length === 0) {
+          const path = process.env.FIREBASE_SERVICE_ACCOUNT_PATH
+          if (!path) {
+            throw new Error('FIREBASE_SERVICE_ACCOUNT_PATH is not set')
+          }
+
+          const fullPath = resolve(process.cwd(), path)
+          const serviceAccount = JSON.parse(
+            readFileSync(fullPath, 'utf8'),
+          )
+
           admin.initializeApp({
-            credential: admin.credential.cert({
-              projectId: config.get<string>('FIREBASE_PROJECT_ID'),
-              clientEmail: config.get<string>('FIREBASE_CLIENT_EMAIL'),
-              privateKey: config
-                .get<string>('FIREBASE_PRIVATE_KEY')
-                ?.replace(/\\n/g, '\n'),
-            }),
-          });
+            credential: admin.credential.cert(serviceAccount),
+          })
         }
-        return admin;
+
+        return admin
       },
     },
   ],
   exports: ['FIREBASE_ADMIN'],
 })
 export class FirebaseModule {}
+

@@ -8,6 +8,7 @@ import { AuthModule } from './auth/auth.module';
 import { PrismaModule } from './prisma/prisma.module';
 import { I18nModule } from './i18n/i18n.module';
 import { ThemeModule } from './theme/theme.module';
+import { ResourcesModule } from './resources/resources.module';
 
 @Module({
   imports: [
@@ -19,6 +20,7 @@ import { ThemeModule } from './theme/theme.module';
     AuthModule,
     I18nModule,
     ThemeModule,
+    ResourcesModule
   ],
   controllers: [AppController],
   providers: [AppService],

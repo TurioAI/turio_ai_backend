@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "version": "1",
+  "images": {
+    "backgrounds": {
+      "home": "https://cdn.turio.ai/bg/home_v2.webp",
+      "login": "https://cdn.turio.ai/bg/login.webp"
+    },
+    "avatars": {
+      "default": "https://cdn.turio.ai/avatars/default.webp",
+      "explorer": "https://cdn.turio.ai/avatars/explorer.webp"
+    },
+    "badges": {
+      "gold": "https://cdn.turio.ai/badges/gold.webp",
+      "silver": "https://cdn.turio.ai/badges/silver.webp"
+    },
+    "leagues": {
+      "bronze": "https://cdn.turio.ai/leagues/bronze.webp",
+      "silver": "https://cdn.turio.ai/leagues/silver.webp",
+      "gold": "https://cdn.turio.ai/leagues/gold.webp"
+    },
+    "trophies": {
+      "champion": "https://cdn.turio.ai/trophies/champion.webp"
+    },
+    "icons": {
+      "star": "https://cdn.turio.ai/icons/star.webp",
+      "map": "https://cdn.turio.ai/icons/map.webp"
+    },
+    "flags": {
+      "es": "https://cdn.turio.ai/flags/es.webp",
+      "fr": "https://cdn.turio.ai/flags/fr.webp"
+    },
+    "levels": {
+      "1": "https://cdn.turio.ai/levels/level_1.webp",
+      "2": "https://cdn.turio.ai/levels/level_2.webp"
+    }
+  }
+}

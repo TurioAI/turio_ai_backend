@@ -2,19 +2,73 @@
   "schemaVersion": 1,
   "version": "1",
   "colors": {
-    "brandDark": "#03045E",
+    "neutralBlack": "#000000",
+    "neutralWhite": "#FFFFFF",
+
+    "gray90": "#E0E0E0",
+    "gray80": "#D9D9D9",
+    "gray70": "#B7B7B7",
+    "gray60": "#909090",
+
+    "brandNavy": "#03045E",
     "brandPrimary": "#056AF1",
-    "brandAccent": "#00B4D8",
-    "buttonPrimaryGradientTop": "#056AF1",
-    "buttonPrimaryGradientBottom": "#033D8B"
+    "brandBlue": "#033D8B",
+
+    "infoCyan": "#00B4D8",
+    "infoCyanSoft": "#90E0EF",
+
+    "accentYellow": "#FFD000",
+    "accentGold": "#AC7339",
+    "accentBrown": "#D3A679",
+
+    "successGreen": "#33FF00",
+    "successGreenStrong": "#32F800",
+    "successGreenDark": "#098C00",
+    "successGreenSoft": "#93FE78",
+
+    "errorRed": "#B75151"
   },
   "opacities": {
-    "buttonDisabledBackground": 0.35,
-    "buttonDisabledLabel": 0.70,
-    "buttonShimmerEdge": 0.10,
-    "buttonShimmerHighlight": 0.30
+    "o100": 1.0,
+    "o80": 0.8,
+    "o70": 0.7,
+    "o60": 0.6,
+    "o50": 0.5,
+    "o40": 0.4,
+    "o30": 0.3,
+    "o25": 0.25,
+    "o10": 0.10,
+    "o0": 0.0
   },
   "textSizes": {
-    "screenTitle": { "size": 24, "weight": 600 }
+    "textTitle": { "size": 24, "weight": 600 }
+  },
+  "spacing": {
+    "xs": 8,
+    "sm": 12,
+    "md": 16,
+    "lg": 24,
+    "xl": 32
+  },
+  "buttonHeights": {
+    "xs": 26,
+    "sm": 32,
+    "md": 36,
+    "lg": 44,
+    "xl": 56
+  },
+  "buttonRadius": {
+    "xs": 8,
+    "sm": 10,
+    "md": 20,
+    "lg": 30,
+    "xl": 40
+  },
+  "durationsMs": {
+    "instant": 1000,
+    "fast": 3000,
+    "normal": 4500,
+    "slow": 6000
   }
 }
+

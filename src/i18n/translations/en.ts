@@ -3,7 +3,18 @@ export const enStrings: Record<string, string> = {
   'login.email': 'Email',
   'login.password': 'Password',
   'login.button': 'Login',
-  'login.register': 'Register (for testing)',
+  'login.register': 'Register',
   'logout': 'Logout',
-  'profile.title': 'Profile (from backend):',
+  'profile.title': 'Profile:',
+
+  'login.error.generic': 'An error occurred. Please try again.',
+  'login.error.invalidCredentials': 'The email or password is incorrect.',
+  'login.error.userNotFound': 'No account exists with this email address.',
+  'login.error.invalidEmail': 'The email address is not valid.',
+  'login.error.weakPassword': 'The password is too weak.',
+  'login.error.emailAlreadyUsed': 'This email address is already in use.',
+  'login.error.network': 'There is a connection problem. Please check your internet connection.',
+  'login.error.missingPassword': 'You must enter a password.',
+  'login.error.serviceUnavailable': 'The service is currently unavailable. Please try again later.',
+
 };

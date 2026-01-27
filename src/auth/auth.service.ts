@@ -4,6 +4,7 @@ import { RegisterDto } from './dto/register.dto';
 import { LoginDto } from './dto/login.dto';
 import { PrismaService } from 'src/prisma/prisma.service';
 import { DecodedIdToken } from 'firebase-admin/auth';
+import { Prisma } from '@prisma/client';
 
 @Injectable()
 export class AuthService {
@@ -49,22 +50,43 @@ export class AuthService {
   async getProfile(firebaseUser: DecodedIdToken) {
     const { uid, email, name } = firebaseUser;
 
-    const user = await this.prisma.user.upsert({
-      where: { firebaseUid: uid },
-      update: {
-        email: email ?? null,
-        displayName: name ?? null,
-      },
-      create: {
-        firebaseUid: uid,
-        email: email ?? null,
-        displayName: name ?? null,
-        role: 'user',
-      },
-    });
+    try {
+      return await this.prisma.user.upsert({
+        where: { firebaseUid: uid },
+        update: {
+          email: email ?? null,
+          displayName: name ?? null,
+        },
+        create: {
+          firebaseUid: uid,
+          email: email ?? null,
+          displayName: name ?? null,
+          role: 'user',
+        },
+      });
+    } catch (e: any) {
+      if (
+        e instanceof Prisma.PrismaClientKnownRequestError &&
+        e.code === 'P2002' &&
+        email
+      ) {
+        const existing = await this.prisma.user.findUnique({ where: { email } });
 
-    return user;
+        if (existing) {
+          return await this.prisma.user.update({
+            where: { id: existing.id },
+            data: {
+              firebaseUid: uid,
+              displayName: name ?? existing.displayName,
+            },
+          });
+        }
+      }
+
+      throw e;
+    }
   }
+
 
 }
 

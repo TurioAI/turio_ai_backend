@@ -3,12 +3,12 @@ import { esStrings } from './translations/es';
 
 export const I18N_DATA = {
   en: {
-    version: 1,
+    version: 8,
     updatedAt: new Date('2026-01-14T10:00:00.000Z'),
     strings: enStrings,
   },
   es: {
-    version: 2,
+    version: 8,
     updatedAt: new Date('2026-01-14T10:00:00.000Z'),
     strings: esStrings,
   },

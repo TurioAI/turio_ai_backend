@@ -41,34 +41,85 @@
     "o0": 0.0
   },
   "textSizes": {
-    "textTitle": { "size": 24, "weight": 600 }
+    "text24w600": { "size": 24, "weight": 600 }
   },
   "spacing": {
-    "xs": 8,
-    "sm": 12,
-    "md": 16,
-    "lg": 24,
-    "xl": 32
+    "space8": 8,
+    "space12": 12,
+    "space16": 16,
+    "space24": 24,
+    "space32": 32,
+    "space64": 64
+  },
+  "borders": {
+    "border050": 0.5,
+    "border075": 0.75,
+    "border100": 1,
+    "border150": 1.5,
+    "border200": 2,
+    "border300": 3,
+    "border400": 4,
+    "border500": 5,
+    "border600": 6
   },
   "buttonHeights": {
-    "xs": 26,
-    "sm": 32,
-    "md": 36,
-    "lg": 44,
-    "xl": 56
+    "btnH26": 26,
+    "btnH32": 32,
+    "btnH36": 36,
+    "btnH44": 44,
+    "btnH56": 56
   },
   "buttonRadius": {
-    "xs": 8,
-    "sm": 10,
-    "md": 20,
-    "lg": 30,
-    "xl": 40
+    "btnR8": 8,
+    "btnR10": 10,
+    "btnR20": 20,
+    "btnR30": 30,
+    "btnR40": 40
   },
   "durationsMs": {
-    "instant": 1000,
-    "fast": 3000,
-    "normal": 4500,
-    "slow": 6000
+    "ms500": 500,
+    "ms1000": 1000,
+    "ms3000": 3000,
+    "ms4500": 4500,
+    "ms6000": 6000
+  },
+  "containerSizes": {
+    "percent10": 0.1,
+    "percent20": 0.2,
+    "percent40": 0.4,
+    "percent60": 0.6,
+    "percent80": 0.8,
+    "percent90": 0.9,
+    "percent100": 1.0,
+    "maximumWidth": 420
+  },
+  "containerRadius": {
+    "radius8": 8,
+    "radius10": 10,
+    "radius20": 20,
+    "radius30": 30,
+    "radius40": 40
+  },
+  "effects": {
+    "blur4": 4,
+    "blur10": 10,
+    "blur20": 20,
+
+    "elevation4": 4,
+    "elevation12": 12,
+    "elevation18": 18,
+    "elevation24": 24
+  },
+  "icons": {
+    "icon12": 12,
+    "icon16": 16,
+    "icon20": 20,
+    "icon24": 24,
+    "icon28": 28,
+    "icon32": 32,
+    "icon40": 40,
+    "icon48": 48,
+    "iconBadges": 160
   }
 }
 

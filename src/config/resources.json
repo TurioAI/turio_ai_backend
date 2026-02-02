@@ -1,10 +1,14 @@
 {
   "schemaVersion": 1,
-  "version": "8",
+  "version": "1",
   "images": {
     "backgrounds": {
       "home": "https://cdn.turio.ai/bg/home_v2.webp",
       "login": "https://cdn.turio.ai/bg/login.webp"
+    },
+    "images": {
+      "tabBarTurio": "assets/images/tabBarTurio.png",
+      "google": "assets/icons/google.png"
     },
     "avatars": {
       "default": "https://cdn.turio.ai/avatars/default.webp",
@@ -13,7 +17,7 @@
     "badges": {
       "gold": "https://cdn.turio.ai/badges/gold.webp",
       "silver": "https://cdn.turio.ai/badges/silver.webp",
-      "register": "badges/register.png"
+      "register": "assets/badges/register.png"
     },
     "leagues": {
       "bronze": "https://cdn.turio.ai/leagues/bronze.webp",
@@ -25,8 +29,7 @@
     },
     "icons": {
       "star": "https://cdn.turio.ai/icons/star.webp",
-      "map": "https://cdn.turio.ai/icons/map.webp",
-      "google": "icons/google.png"
+      "map": "https://cdn.turio.ai/icons/map.webp"
     },
     "flags": {
       "es": "https://cdn.turio.ai/flags/es.webp",

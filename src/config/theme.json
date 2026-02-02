@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "1",
+  "version": "13",
   "colors": {
     "neutralBlack": "#000000",
     "neutralWhite": "#FFFFFF",
@@ -28,6 +28,56 @@
 
     "errorRed": "#B75151"
   },
+
+  "fonts": {
+    "inter": "Inter",
+    "poppins": "Poppins"
+  },
+
+  "textStyles": {
+    "screenTitle": {
+      "fontFamily": "Poppins",
+      "fontSize": 24,
+      "fontWeight": 600
+    },
+    "sectionTitle": {
+      "fontFamily": "Poppins",
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    "body": {
+      "fontFamily": "Inter",
+      "fontSize": 15,
+      "fontWeight": 400
+    },
+    "bodySecondary": {
+      "fontFamily": "Inter",
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    "label": {
+      "fontFamily": "Inter",
+      "fontSize": 11,
+      "fontWeight": 600
+    },
+    "button": {
+      "fontFamily": "Inter",
+      "fontSize": 15,
+      "fontWeight": 600
+    },
+    "score": {
+      "fontFamily": "Poppins",
+      "fontSize": 28,
+      "fontWeight": 700
+    }
+  },
+
+  "componentSizes": {
+    "tabBarHeight": 65,
+    "tabBarMiddleItemWidth": 80,
+    "tabBarDomeCenterYOffset": 20
+  },
+
   "opacities": {
     "o100": 1.0,
     "o80": 0.8,
@@ -40,9 +90,11 @@
     "o10": 0.10,
     "o0": 0.0
   },
+
   "textSizes": {
     "text24w600": { "size": 24, "weight": 600 }
   },
+
   "spacing": {
     "space8": 8,
     "space12": 12,
@@ -51,6 +103,7 @@
     "space32": 32,
     "space64": 64
   },
+
   "borders": {
     "border050": 0.5,
     "border075": 0.75,
@@ -62,6 +115,7 @@
     "border500": 5,
     "border600": 6
   },
+
   "buttonHeights": {
     "btnH26": 26,
     "btnH32": 32,
@@ -69,6 +123,7 @@
     "btnH44": 44,
     "btnH56": 56
   },
+
   "buttonRadius": {
     "btnR8": 8,
     "btnR10": 10,
@@ -76,13 +131,16 @@
     "btnR30": 30,
     "btnR40": 40
   },
+
   "durationsMs": {
     "ms500": 500,
     "ms1000": 1000,
+    "ms1500": 1500,
     "ms3000": 3000,
     "ms4500": 4500,
     "ms6000": 6000
   },
+
   "containerSizes": {
     "percent10": 0.1,
     "percent20": 0.2,
@@ -93,6 +151,7 @@
     "percent100": 1.0,
     "maximumWidth": 420
   },
+
   "containerRadius": {
     "radius8": 8,
     "radius10": 10,
@@ -100,6 +159,7 @@
     "radius30": 30,
     "radius40": 40
   },
+
   "effects": {
     "blur4": 4,
     "blur10": 10,
@@ -110,7 +170,8 @@
     "elevation18": 18,
     "elevation24": 24
   },
-  "icons": {
+
+  "imageSizes": {
     "icon12": 12,
     "icon16": 16,
     "icon20": 20,
@@ -119,7 +180,7 @@
     "icon32": 32,
     "icon40": 40,
     "icon48": 48,
-    "iconBadges": 160
+    "badgesSize": 160,
+    "tabBarTurioSize": 65
   }
 }
-

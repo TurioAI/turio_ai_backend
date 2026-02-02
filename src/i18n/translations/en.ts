@@ -17,4 +17,14 @@ export const enStrings: Record<string, string> = {
   'login.error.missingPassword': 'You must enter a password.',
   'login.error.serviceUnavailable': 'The service is currently unavailable. Please try again later.',
 
+  'router.home': 'Home',
+  'router.battles': 'Battles',
+  'router.challenges': 'Challenges',
+  'router.profile': 'Profile',
+  'player.reset': 'Reset',
+  'player.rewind': '-30 sec',
+  'player.play': 'Play',
+  'player.pause': 'Pause',
+  'player.forward': '+30 sec',
+  'player.close': 'Close',
 };

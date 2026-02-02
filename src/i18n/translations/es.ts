@@ -17,4 +17,14 @@ export const esStrings: Record<string, string> = {
   'login.error.missingPassword': 'Debes introducir una contraseña.',
   'login.error.serviceUnavailable': 'El servicio no está disponible en este momento. Inténtalo de nuevo más tarde.',
 
+  'router.home': 'Home',
+  'router.battles': 'Batallas',
+  'router.challenges': 'Desafios',
+  'router.profile': 'Perfil',
+  'player.reset': 'Reiniciar',
+  'player.rewind': '-30 seg',
+  'player.play': 'Play',
+  'player.pause': 'Pausa',
+  'player.forward': '+30 seg',
+  'player.close': 'Cerrar',
 }

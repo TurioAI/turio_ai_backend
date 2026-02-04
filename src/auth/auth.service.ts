@@ -1,10 +1,7 @@
 import { Injectable, Inject, BadRequestException } from '@nestjs/common';
 import * as admin from 'firebase-admin';
-import { RegisterDto } from './dto/register.dto';
-import { LoginDto } from './dto/login.dto';
 import { PrismaService } from 'src/prisma/prisma.service';
 import { DecodedIdToken } from 'firebase-admin/auth';
-import { Prisma } from '@prisma/client';
 
 @Injectable()
 export class AuthService {
@@ -14,80 +11,68 @@ export class AuthService {
     private readonly prisma: PrismaService
   ) {}
 
-  async register(dto: RegisterDto) {
+  async syncMe(firebaseUser: DecodedIdToken) {
+    const firebaseUid = firebaseUser.uid;
+    const email = firebaseUser.email ?? null;
+
+    // OJO: en tokens a veces viene "name" o a veces "picture", "firebase" etc.
+    const providerName =
+      (firebaseUser as any).name ??
+      (firebaseUser as any).displayName ??
+      null;
+
     try {
-      const userRecord = await this.firebaseAdmin.auth().createUser({
-        email: dto.email,
-        password: dto.password,
-        displayName: dto.displayName,
+      // Busca por firebaseUid primero
+      const existingByUid = await this.prisma.user.findUnique({
+        where: { firebaseUid },
       });
 
-      return {
-        uid: userRecord.uid,
-        email: userRecord.email,
-        displayName: userRecord.displayName,
-      };
-    } catch (error: any) {
-      throw new BadRequestException(error.message || 'Failed to register user');
-    }
-  }
+      if (existingByUid) {
+        // Actualiza solo lo que sea "fuente de verdad" desde Firebase
+        // y NO pises displayName si el usuario lo personalizó en tu app.
+        return await this.prisma.user.update({
+          where: { id: existingByUid.id },
+          data: {
+            email, // si cambia email en Firebase, lo reflejas
+            // displayName: undefined, // no tocar
+            // providerDisplayName: providerName, // <- solo si tienes este campo
+          },
+        });
+      }
 
-  async login(dto: LoginDto) {
-    try {
-      const userRecord = await this.firebaseAdmin.auth().getUserByEmail(dto.email);
-      const customToken = await this.firebaseAdmin.auth().createCustomToken(userRecord.uid);
+      // Si no existe por uid, intenta por email para "relink" controlado
+      // (esto evita problemas si un usuario creó cuenta email/pass y luego google con mismo email)
+      if (email) {
+        const existingByEmail = await this.prisma.user.findUnique({
+          where: { email },
+        });
 
-      return {
-        uid: userRecord.uid,
-        email: userRecord.email,
-        displayName: userRecord.displayName,
-      };
-    } catch (error: any) {
-      throw new BadRequestException(error.message || 'Failed to login user');
-    }
-  }
-
-  async getProfile(firebaseUser: DecodedIdToken) {
-    const { uid, email, name } = firebaseUser;
-
-    try {
-      return await this.prisma.user.upsert({
-        where: { firebaseUid: uid },
-        update: {
-          email: email ?? null,
-          displayName: name ?? null,
-        },
-        create: {
-          firebaseUid: uid,
-          email: email ?? null,
-          displayName: name ?? null,
-          role: 'user',
-        },
-      });
-    } catch (e: any) {
-      if (
-        e instanceof Prisma.PrismaClientKnownRequestError &&
-        e.code === 'P2002' &&
-        email
-      ) {
-        const existing = await this.prisma.user.findUnique({ where: { email } });
-
-        if (existing) {
+        if (existingByEmail) {
           return await this.prisma.user.update({
-            where: { id: existing.id },
+            where: { id: existingByEmail.id },
             data: {
-              firebaseUid: uid,
-              displayName: name ?? existing.displayName,
+              firebaseUid,
+              // NO pises displayName; solo rellénalo si estaba vacío
+              displayName: existingByEmail.displayName ?? providerName,
+              // providerDisplayName: providerName, // <- si existe el campo
             },
           });
         }
       }
 
-      throw e;
+      // Si no existe por uid ni por email, crea nuevo
+      return await this.prisma.user.create({
+        data: {
+          firebaseUid,
+          email,
+          // Para el nombre: en creación sí puedes usar el providerName como default
+          displayName: providerName,
+          role: 'user',
+          // providerDisplayName: providerName, // <- si existe el campo
+        },
+      });
+    } catch (error: any) {
+      throw new BadRequestException(error.message || 'Failed to sync user');
     }
   }
-
-
 }
-
-

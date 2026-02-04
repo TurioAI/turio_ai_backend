@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "13",
+  "version": "1",
   "colors": {
     "neutralBlack": "#000000",
     "neutralWhite": "#FFFFFF",
@@ -136,6 +136,7 @@
     "ms500": 500,
     "ms1000": 1000,
     "ms1500": 1500,
+    "ms2000": 2000,
     "ms3000": 3000,
     "ms4500": 4500,
     "ms6000": 6000
@@ -180,6 +181,7 @@
     "icon32": 32,
     "icon40": 40,
     "icon48": 48,
+    "icon60": 60,
     "badgesSize": 160,
     "tabBarTurioSize": 65
   }

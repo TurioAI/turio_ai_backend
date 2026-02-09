@@ -8,7 +8,8 @@
     },
     "images": {
       "tabBarTurio": "assets/images/tabBarTurio.png",
-      "google": "assets/icons/google.png"
+      "google": "assets/icons/google.png",
+      "profileSettings": "assets/images/profileSettings.png"
     },
     "avatars": {
       "default": "https://cdn.turio.ai/avatars/default.webp",
@@ -17,7 +18,8 @@
     "badges": {
       "gold": "https://cdn.turio.ai/badges/gold.webp",
       "silver": "https://cdn.turio.ai/badges/silver.webp",
-      "register": "assets/badges/register.png"
+      "register": "assets/badges/register.png",
+      "premium": "assets/badges/premium.png"
     },
     "leagues": {
       "bronze": "https://cdn.turio.ai/leagues/bronze.webp",

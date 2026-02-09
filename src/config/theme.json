@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "1",
+  "version": "3",
   "colors": {
     "neutralBlack": "#000000",
     "neutralWhite": "#FFFFFF",
@@ -18,6 +18,7 @@
     "infoCyanSoft": "#90E0EF",
 
     "accentYellow": "#FFD000",
+    "darkYellow": "#997D00",
     "accentGold": "#AC7339",
     "accentBrown": "#D3A679",
 
@@ -146,6 +147,7 @@
     "percent10": 0.1,
     "percent20": 0.2,
     "percent40": 0.4,
+    "percent50": 0.5,
     "percent60": 0.6,
     "percent80": 0.8,
     "percent90": 0.9,

@@ -9,6 +9,8 @@ import { PrismaModule } from './prisma/prisma.module';
 import { I18nModule } from './i18n/i18n.module';
 import { ThemeModule } from './theme/theme.module';
 import { ResourcesModule } from './resources/resources.module';
+import { TrophiesModule } from './trophies/trophies.module';
+import { BadgesModule } from './badges/badges.module';
 
 @Module({
   imports: [
@@ -20,7 +22,9 @@ import { ResourcesModule } from './resources/resources.module';
     AuthModule,
     I18nModule,
     ThemeModule,
-    ResourcesModule
+    ResourcesModule,
+    TrophiesModule,
+    BadgesModule
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -43,8 +43,12 @@ export const enStrings: Record<string, string> = {
   'user.points': 'Points',
   'user.badges': 'Badges',
   'user.battles': 'Battles',
-  'trophies.showcase': 'Trophy Showcase',
-  'badges.showcase': 'Badge Showcase',
+  'user.battlesWon': 'Battles won',
+  'user.distance': 'Distance traveled',
+  'user.nightBattles': 'Night battles',
+  'user.citiesVisited': 'Cities visited',
+  'user.monumentsVisited': 'Monuments visited',
+  'user.challengesCompleted': 'Challenges completed',
 
   // ── Membership / Premium ─────────────────────
   'membership.upgrade': 'Upgrade your membership',
@@ -52,4 +56,6 @@ export const enStrings: Record<string, string> = {
 
   // ── Settings / Profile ─────────────────────
   'settings.profile': 'Profile settings',
+  'trophies.showcase': 'Trophy Showcase',
+  'badges.showcase': 'Badge Showcase',
 };

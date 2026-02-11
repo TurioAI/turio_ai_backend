@@ -30,7 +30,7 @@ enum MembershipTier {
 }
 
 model User {
-  id          String        @id @default(uuid()) @db.Uuid
+  id          String        @id @default(uuid())
   firebaseUid String        @unique
   email       String?       @unique
   displayName String?
@@ -38,16 +38,20 @@ model User {
   status      AccountStatus @default(active)
   locale      String        @default("es-ES")
 
+  // ── Profile ────────────────────────────
   profileImageUrl       String?
   profileImageUpdatedAt DateTime?
 
+  // ── Membership ─────────────────────────
   membershipTier      MembershipTier @default(turista)
   membershipStartedAt DateTime?
   membershipEndsAt    DateTime?
 
+  // ── Progress & Level ───────────────────
   level Int @default(1)
   xp    Int @default(0)
 
+  // ── Points ─────────────────────────────
   pointsTotal          Int    @default(0)
   pointsThisWeek       Int    @default(0)
   pointsWeekKey        String @default("")
@@ -56,11 +60,13 @@ model User {
   battlePointsTotal    Int    @default(0)
   challengePointsTotal Int    @default(0)
 
-  leagueId        String?  @db.Uuid
-  league          League?  @relation(fields: [leagueId], references: [id])
+  // ── League ─────────────────────────────
+  leagueId        String?
+  league          League?   @relation(fields: [leagueId], references: [id])
   leagueRank      Int?
   leagueUpdatedAt DateTime?
 
+  // ── Participation counters ─────────────
   battlesInProgressCount    Int @default(0)
   challengesInProgressCount Int @default(0)
   battlesEnrolledCount      Int @default(0)
@@ -68,6 +74,14 @@ model User {
   battlesCompletedCount     Int @default(0)
   challengesCompletedCount  Int @default(0)
 
+  // ── Global user stats (manual / pgAdmin) ─
+  battlesWonCount            Int     @default(0)
+  distanceTraveledKm         Decimal @default(0.0) @db.Decimal(10, 2)
+  nightBattlesCompletedCount Int     @default(0)
+  citiesVisitedCount         Int     @default(0)
+  monumentsVisitedCount      Int     @default(0)
+
+  // ── Relations ──────────────────────────
   favoriteBattles    FavoriteBattle[]
   favoriteChallenges FavoriteChallenge[]
   userBattles        UserBattle[]
@@ -75,14 +89,18 @@ model User {
   userBadges         UserBadge[]
   userTrophies       UserTrophy[]
 
+  // ── Timestamps ─────────────────────────
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
+  // ── Indexes ────────────────────────────
   @@index([leagueId])
+  @@index([battlesWonCount])
+  @@index([citiesVisitedCount])
 }
 
 model League {
-  id        String   @id @default(uuid()) @db.Uuid
+  id        String @id @default(uuid())
   name      String
   level     Int
   minPoints Int?
@@ -94,9 +112,9 @@ model League {
 }
 
 model Battle {
-  id        String   @id @default(uuid()) @db.Uuid
-  title     String
-  active    Boolean  @default(true)
+  id     String  @id @default(uuid())
+  title  String
+  active Boolean @default(true)
 
   favorites FavoriteBattle[]
   users     UserBattle[]
@@ -106,9 +124,9 @@ model Battle {
 }
 
 model Challenge {
-  id        String   @id @default(uuid()) @db.Uuid
-  title     String
-  active    Boolean  @default(true)
+  id     String  @id @default(uuid())
+  title  String
+  active Boolean @default(true)
 
   favorites FavoriteChallenge[]
   users     UserChallenge[]
@@ -118,9 +136,9 @@ model Challenge {
 }
 
 model FavoriteBattle {
-  id        String   @id @default(uuid()) @db.Uuid
-  userId    String   @db.Uuid
-  battleId  String   @db.Uuid
+  id        String   @id @default(uuid())
+  userId    String
+  battleId  String
   user      User     @relation(fields: [userId], references: [id])
   battle    Battle   @relation(fields: [battleId], references: [id])
   createdAt DateTime @default(now())
@@ -131,9 +149,9 @@ model FavoriteBattle {
 }
 
 model FavoriteChallenge {
-  id          String    @id @default(uuid()) @db.Uuid
-  userId      String    @db.Uuid
-  challengeId String    @db.Uuid
+  id          String    @id @default(uuid())
+  userId      String
+  challengeId String
   user        User      @relation(fields: [userId], references: [id])
   challenge   Challenge @relation(fields: [challengeId], references: [id])
   createdAt   DateTime  @default(now())
@@ -144,11 +162,11 @@ model FavoriteChallenge {
 }
 
 model UserBattle {
-  id           String              @id @default(uuid()) @db.Uuid
-  userId       String              @db.Uuid
-  battleId     String              @db.Uuid
-  user         User                @relation(fields: [userId], references: [id])
-  battle       Battle              @relation(fields: [battleId], references: [id])
+  id       String @id @default(uuid())
+  userId   String
+  battleId String
+  user     User   @relation(fields: [userId], references: [id])
+  battle   Battle @relation(fields: [battleId], references: [id])
 
   status       ParticipationStatus
   joinedAt     DateTime            @default(now())
@@ -162,11 +180,11 @@ model UserBattle {
 }
 
 model UserChallenge {
-  id           String              @id @default(uuid()) @db.Uuid
-  userId       String              @db.Uuid
-  challengeId  String              @db.Uuid
-  user         User                @relation(fields: [userId], references: [id])
-  challenge    Challenge           @relation(fields: [challengeId], references: [id])
+  id          String    @id @default(uuid())
+  userId      String
+  challengeId String
+  user        User      @relation(fields: [userId], references: [id])
+  challenge   Challenge @relation(fields: [challengeId], references: [id])
 
   status       ParticipationStatus
   joinedAt     DateTime            @default(now())
@@ -180,26 +198,26 @@ model UserChallenge {
 }
 
 model Badge {
-  id             String   @id @default(uuid()) @db.Uuid
+  id             String  @id @default(uuid())
   titleKey       String
   descriptionKey String
   ruleType       String
-  active         Boolean  @default(true)
+  active         Boolean @default(true)
 
   imageKey  String
-  sortOrder Int     @default(0)
+  sortOrder Int    @default(0)
 
   users     UserBadge[]
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  createdAt DateTime    @default(now())
+  updatedAt DateTime    @updatedAt
 
   @@index([active, sortOrder])
 }
 
 model UserBadge {
-  id       String   @id @default(uuid()) @db.Uuid
-  userId   String   @db.Uuid
-  badgeId  String   @db.Uuid
+  id       String   @id @default(uuid())
+  userId   String
+  badgeId  String
   user     User     @relation(fields: [userId], references: [id])
   badge    Badge    @relation(fields: [badgeId], references: [id])
   earnedAt DateTime @default(now())
@@ -211,26 +229,26 @@ model UserBadge {
 }
 
 model Trophy {
-  id             String   @id @default(uuid()) @db.Uuid
+  id             String  @id @default(uuid())
   titleKey       String
   descriptionKey String
   ruleType       String
-  active         Boolean  @default(true)
+  active         Boolean @default(true)
 
   imageKey  String
-  sortOrder Int     @default(0)
+  sortOrder Int    @default(0)
 
   users     UserTrophy[]
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  createdAt DateTime     @default(now())
+  updatedAt DateTime     @updatedAt
 
   @@index([active, sortOrder])
 }
 
 model UserTrophy {
-  id       String   @id @default(uuid()) @db.Uuid
-  userId   String   @db.Uuid
-  trophyId String   @db.Uuid
+  id       String   @id @default(uuid())
+  userId   String
+  trophyId String
   user     User     @relation(fields: [userId], references: [id])
   trophy   Trophy   @relation(fields: [trophyId], references: [id])
   earnedAt DateTime @default(now())

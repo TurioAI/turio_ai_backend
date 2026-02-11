@@ -43,8 +43,12 @@ export const esStrings: Record<string, string> = {
   'user.points': 'Puntos',
   'user.badges': 'Insignias',
   'user.battles': 'Batallas',
-  'trophies.showcase': 'Vitrina de trofeos',
-  'badges.showcase': 'Vitrina de insignias',
+  'user.battlesWon': 'Batallas ganadas',
+  'user.distance': 'Distancia recorrida',
+  'user.nightBattles': 'Batallas nocturnas',
+  'user.citiesVisited': 'Ciudades visitadas',
+  'user.monumentsVisited': 'Monumentos visitados',
+  'user.challengesCompleted': 'Desafíos completados',
 
   // ── Membresía / Premium ─────────────────────
   'membership.upgrade': 'Mejora tu membresía',
@@ -52,4 +56,6 @@ export const esStrings: Record<string, string> = {
 
   // ── Settings / Perfil ─────────────────────
   'settings.profile': 'Ajustes de perfil',
+  'trophies.showcase': 'Vitrina de trofeos',
+  'badges.showcase': 'Vitrina de insignias',
 };

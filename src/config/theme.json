@@ -185,6 +185,7 @@
     "icon48": 48,
     "icon60": 60,
     "badgesSize": 160,
+    "showcaseImage": 180,
     "tabBarTurioSize": 65
   }
 }

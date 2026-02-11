@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "1",
+  "version": "2",
   "images": {
     "backgrounds": {
       "home": "https://cdn.turio.ai/bg/home_v2.webp",
@@ -19,7 +19,17 @@
       "gold": "https://cdn.turio.ai/badges/gold.webp",
       "silver": "https://cdn.turio.ai/badges/silver.webp",
       "register": "assets/badges/register.png",
-      "premium": "assets/badges/premium.png"
+      "premium": "assets/badges/premium.png",
+      "distanceTraveledKm": "https://libstoragetest.blob.core.windows.net/partners/test/badge4.png",
+      "citiesVisitedCount": "https://libstoragetest.blob.core.windows.net/partners/test/badge2.png",
+      "nightBattlesCompletedCount": "https://libstoragetest.blob.core.windows.net/partners/test/badge7.png",
+      "monumentsVisitedCount": "https://libstoragetest.blob.core.windows.net/partners/test/badge8.png",
+      "battlesWonCount": "https://libstoragetest.blob.core.windows.net/partners/test/badge9.png",
+      "challengesCompletedCount": "https://libstoragetest.blob.core.windows.net/partners/test/badge10.png",
+
+      "brujula": "https://libstoragetest.blob.core.windows.net/partners/test/badge1.png",
+      "acierto": "https://libstoragetest.blob.core.windows.net/partners/test/badge3.png",
+      "candado": "https://libstoragetest.blob.core.windows.net/partners/test/badge5.png"
     },
     "leagues": {
       "bronze": "https://cdn.turio.ai/leagues/bronze.webp",
